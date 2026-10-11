@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30 Dias de Declarações - Charmila Elija</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:#0f172a;color:#1e293b}
+.hero{
+    min-height:85vh;
+    background: linear-gradient(90deg, rgba(15,23,42,0.92) 0%, rgba(15,23,42,0.75) 50%, rgba(15,23,42,0.4) 100%), url('foto.jpg');
+    background-size:cover; background-position:center right;
+    display:flex; align-items:center; padding:40px;
+    color:white; position:relative;
+  }
+.hero-content{max-width:600px; z-index:2}
+.logo{font-size:13px; letter-spacing:3px; opacity:0.7; margin-bottom:60px; display:block}
+.hero h1{
+    font-family:'Anton',sans-serif; font-size:52px; line-height:0.95;
+    text-transform:uppercase; letter-spacing:1px; margin-bottom:15px;
+  }
+.hero p{font-size:18px; opacity:0.8; margin-bottom:30px; font-weight:400}
+.btn-branco{
+    background:white; color:#0f172a; border:none; padding:16px 36px;
+    border-radius:100px; font-weight:700; font-size:16px; cursor:pointer;
+  }
+.badge{
+    display:inline-block; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);
+    padding:8px 16px; border-radius:100px; font-size:12px; margin-top:20px; backdrop-filter:blur(10px);
+  }
+.container{max-width:800px;margin:0 auto;padding:20px;background:#f8fafc;min-height:50vh}
+.menu{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:20px 0}
+.menu button{border:1px solid #e2e8f0;background:white;padding:12px;border-radius:10px;cursor:pointer;font-weight:700;color:#0f172a}
+.menu button.active,.menu button:hover{background:#0f172a;color:white}
+.card{background:white;border-radius:20px;padding:32px;box-shadow:0 10px 30px rgba(0,0,0,0.08);margin-top:20px}
+.card h2{font-family:'Anton',sans-serif;font-size:26px;color:#0f172a;text-transform:uppercase;letter-spacing:0.5px}
+.versiculo{background:#0f172a;color:white;display:inline-block;padding:6px 14px;border-radius:100px;font-size:12px;font-weight:700;margin:15px 0}
+.bloco{background:#f1f5f9;padding:18px;border-radius:14px;margin:16px 0;border-left:4px solid #0f172a}
+.label{font-size:10px;letter-spacing:2px;font-weight:700;opacity:0.5;margin-bottom:6px}
+.nav{display:flex;justify-content:space-between;margin-top:24px;gap:12px}
+.nav button{flex:1;background:#0f172a;color:white;border:none;padding:16px;border-radius:100px;cursor:pointer;font-weight:700}
+.progress{height:4px;background:#e2e8f0;border-radius:100px;overflow:hidden;margin:0 0 20px 0}
+.progress div{height:100%;background:#0f172a;transition:width 0.3s}
+  footer{text-align:center;padding:30px;font-size:11px;letter-spacing:1px;opacity:0.5;color:#64748b}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-content">
+    <span class="logo">FÉ & PALAVRA</span>
+    <h1>30 DIAS DE<br>DECLARAÇÕES<br>& ORAÇÕES</h1>
+    <p>Eu sou quem Deus diz que eu sou</p>
+    <button class="btn-branco" onclick="document.querySelector('.container').scrollIntoView({behavior:'smooth'})">Começar Agora</button>
+    <br>
+    <div class="badge">PERSONALIZADO PARA CHARMILA ELIJA</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="progress"><div id="barra"></div></div>
+  <div class="menu" id="menu"></div>
+  <div class="card" id="card"></div>
+  <div class="nav">
+    <button onclick="mudar(-1)">← ANTERIOR</button>
+    <button onclick="mudar(1)">PRÓXIMO →</button>
+  </div>
+  <footer>CHARMILA ELIJA • M-PESA 850730250 • E-MOLA 861568130 • 2026</footer>
+</div>
+
+<script>
+const devocional = [
+  {t:"Dia 1 - Eu sou amada e escolhida", v:"Efésios 1:4", d:"Eu sou escolhida, amada e aceita por Deus desde antes da fundação do mundo. Eu não sou um erro, sou parte do plano perfeito de Deus.", o:"Pai querido, obrigada por me escolher e me amar mesmo com minhas falhas. Hoje eu recebo o Teu amor e rejeito toda rejeição. Que eu me sinta amada e escolhida por Ti. Em nome de Jesus, Amém."},
+  {t:"Dia 2 - Eu tenho paz", v:"Filipenses 4:7", d:"Eu tenho a paz de Deus que excede todo entendimento guardando meu coração e minha mente. A ansiedade não tem domínio sobre mim.", o:"Senhor, entrego toda ansiedade em Tuas mãos. Que Tua paz, que vai além da minha compreensão, guarde meu coração. Eu escolho descansar em Ti hoje. Amém."},
+  {t:"Dia 3 - Eu sou forte e corajosa", v:"Isaías 41:10", d:"Eu sou forte e corajosa. Não temerei, pois o Senhor meu Deus está comigo por onde eu for. Eu não vou desistir.", o:"Deus, quando eu sou fraca, Tu és a minha força. Renova minhas forças como as da águia hoje. Eu declaro que sou forte em Ti. Amém."},
+  {t:"Dia 4 - Meu futuro é de esperança", v:"Jeremias 29:11", d:"O meu futuro está nas mãos de Deus e os planos Dele para mim são de paz, esperança e um futuro brilhante.", o:"Pai, eu confio nos Teus planos. Mesmo quando não entendo, eu sei que o Senhor tem o melhor para mim. Eu entrego meu futuro a Ti. Amém."},
+  {t:"Dia 5 - Eu sou perdoada", v:"1 João 1:9", d:"Eu sou completamente perdoada e purificada pelo sangue de Jesus. Eu não carrego mais culpa, vergonha ou condenação.", o:"Obrigada, Jesus, pelo Teu perdão. Hoje eu me perdoo também. Eu deixo a culpa e recebo Tua graça. Amém."},
+  {t:"Dia 6 - Sou mais que vencedora", v:"Romanos 8:37", d:"Em todas as coisas eu sou mais que vencedora por meio Daquele que me amou. Nenhuma luta vai me parar.", o:"Senhor, hoje eu não vou reclamar da luta, vou declarar vitória. Eu sou mais que vencedora em Cristo Jesus. Amém."},
+  {t:"Dia 7 - Sou grata e abençoada", v:"Salmos 103:2-5", d:"Eu sou abençoada com todos os benefícios de Deus. Minha boca se encherá de gratidão e minha vida de Seus favores.", o:"Pai, abre meus olhos para ver quantas bênçãos já tenho. Obrigada pela vida, saúde e família. Eu escolho ser grata hoje. Amém."},
+  {t:"Dia 8 - Sou curada e restaurada", v:"Isaías 53:5", d:"Pelas feridas de Jesus eu fui sarada. Meu coração, minhas emoções e meu corpo estão sendo curados a cada dia.", o:"Jesus, Tu levaste minhas dores na cruz. Toca agora meu coração ferido e meu corpo. Eu recebo Tua cura completa. Amém."},
+  {t:"Dia 9 - Tenho alegria verdadeira", v:"Neemias 8:10", d:"A alegria do Senhor é a minha força. Minha alegria não depende das circunstâncias, mas da presença de Deus em mim.", o:"Senhor, enche-me de alegria hoje. Que eu sorria mesmo nas dificuldades, porque Tu és minha força. Amém."},
+  {t:"Dia 10 - Sou confiante e sem medo", v:"Salmos 27:1", d:"O Senhor é a minha luz e a minha salvação, de quem terei medo? Eu ando com confiança e cabeça erguida.", o:"Pai, tira todo medo e insegurança de mim. Eu sou Tua filha, eu não preciso ter medo do amanhã. Amém."},
+  {t:"Dia 11 - Tenho sabedoria", v:"Tiago 1:5", d:"Deus me dá sabedoria generosamente para tomar as decisões certas. Eu tenho a mente de Cristo.", o:"Deus, preciso de sabedoria hoje para decidir, para falar e para agir. Guia meus pensamentos e palavras. Amém."},
+  {t:"Dia 12 - Sou paciente e esperançosa", v:"Salmos 40:1", d:"Eu esperei com paciência no Senhor e Ele me ouviu. Eu sei esperar o tempo de Deus porque o tempo Dele é perfeito.", o:"Senhor, ensina-me a esperar sem reclamar. O Teu tempo é melhor que o meu. Eu confio. Amém."},
+  {t:"Dia 13 - Sou amada incondicionalmente", v:"Romanos 8:38-39", d:"Nada pode me separar do amor de Deus. Nem altura, nem profundidade, nem passado, nem erro. Eu sou eternamente amada.", o:"Obrigada por nunca desistir de mim, Deus. Mesmo quando eu falho, Teu amor continua. Eu recebo esse amor hoje. Amém."},
+  {t:"Dia 14 - Tenho domínio próprio", v:"2 Timóteo 1:7", d:"Deus não me deu espírito de medo, mas de poder, amor e equilíbrio. Eu tenho domínio sobre minhas emoções e atitudes.", o:"Espírito Santo, domina minhas emoções hoje. Que eu não aja por impulso, mas com sabedoria e equilíbrio. Amém."},
+  {t:"Dia 15 - Sou criada com propósito", v:"Efésios 2:10", d:"Eu sou feitura de Deus, criada em Cristo Jesus para boas obras. Minha vida tem propósito, eu não estou aqui por acaso.", o:"Pai, mostra-me o meu propósito hoje. Usa minha vida para abençoar alguém. Eu quero viver para o que realmente importa. Amém."},
+  {t:"Dia 16 - Sou guiada por Deus", v:"Salmos 32:8", d:"O Senhor me instrui e me ensina o caminho que devo seguir. Ele me guia com Seus olhos amorosos sobre mim.", o:"Senhor, guia meus passos hoje. Fecha as portas erradas e abre as certas. Eu quero andar no Teu caminho. Amém."},
+  {t:"Dia 17 - Nada me faltará", v:"Salmos 23:1", d:"O Senhor é o meu Pastor e nada me faltará. Ele supre todas as minhas necessidades com Sua riqueza e glória.", o:"Meu Pastor, obrigada porque cuidas de mim. Eu entrego minhas contas, meus medos financeiros em Tuas mãos. Supre hoje. Amém."},
+  {t:"Dia 18 - Sou nova criatura", v:"2 Coríntios 5:17", d:"Eu sou nova criatura em Cristo. As coisas velhas passaram, tudo se fez novo. Meu passado não me define mais.", o:"Jesus, obrigada pela nova vida. Hoje eu deixo o passado para trás. Eu sou nova, limpa e recomeço em Ti. Amém."},
+  {t:"Dia 19 - Tenho fé que move montanhas", v:"Mateus 17:20", d:"Eu tenho fé, mesmo pequena como um grão de mostarda, mas essa fé pode mover montanhas na minha vida.", o:"Senhor, aumenta minha fé hoje. Mesmo com dúvidas, eu escolho crer que o impossível vai acontecer. Amém."},
+  {t:"Dia 20 - Sou resiliente e firme", v:"Salmos 46:1", d:"Deus é meu refúgio e fortaleza, socorro bem presente na angústia. Eu posso cair, mas vou me levantar mais forte.", o:"Deus, me sustenta quando eu quiser desistir. Seja meu refúgio hoje. Eu me levanto novamente em Teu nome. Amém."},
+  {t:"Dia 21 - Cheia do Espírito Santo", v:"Atos 1:8", d:"Eu recebo poder ao descer sobre mim o Espírito Santo. Eu tenho ousadia, coragem e poder para testemunhar.", o:"Espírito Santo, enche-me hoje de novo. Tira a timidez e me dá ousadia para falar do Teu amor. Amém."},
+  {t:"Dia 22 - Eu sou luz no mundo", v:"Mateus 5:14", d:"Eu sou a luz do mundo. Uma cidade sobre o monte não se pode esconder. Minha luz vai brilhar onde eu estiver.", o:"Senhor, que minha vida brilhe hoje. Que minhas atitudes, palavras e sorriso mostrem Jesus às pessoas. Amém."},
+  {t:"Dia 23 - Abençoada para abençoar", v:"Gênesis 12:2", d:"Eu sou abençoada para ser uma bênção. Minha vida, meu trabalho e minhas palavras abençoam outros.", o:"Pai, usa-me hoje para abençoar alguém. Que eu seja resposta de oração para outra pessoa. Amém."},
+  {t:"Dia 24 - Minhas palavras têm poder", v:"Provérbios 18:21", d:"A morte e a vida estão no poder da minha língua. Hoje eu escolho falar vida, bênção, esperança e vitória.", o:"Senhor, guarda minha boca hoje. Que eu não fale maldição, reclamação, mas só palavras que curam e edificam. Amém."},
+  {t:"Dia 25 - Sou próspera em tudo", v:"Salmos 1:3", d:"Eu sou como árvore plantada junto a ribeiros de águas. Tudo quanto eu fizer prosperará no tempo certo.", o:"Deus, abençoa o trabalho das minhas mãos hoje. Que eu prospere, cresça e veja Teu favor sobre mim. Amém."},
+  {t:"Dia 26 - Meu lar tem paz", v:"Josué 24:15", d:"Eu e a minha casa serviremos ao Senhor. Meu lar é cheio de paz, amor, respeito e presença de Deus.", o:"Senhor, entra no meu lar hoje. Tira toda briga, confusão e traz paz, união e amor para minha família. Amém."},
+  {t:"Dia 27 - Corajosa para recomeçar", v:"Deuteronômio 31:6", d:"Eu sou forte e corajosa, não temerei, pois o Senhor meu Deus vai comigo. Ele nunca me deixará nem me desamparará.", o:"Pai, me dá coragem para recomeçar o que preciso. Eu não estou sozinha, Tu vais comigo em cada passo. Amém."},
+  {t:"Dia 28 - Curada no corpo e na alma", v:"Êxodo 15:26", d:"O Senhor é o meu médico, Ele é Jeová Rafá, o Deus que me cura de toda enfermidade física e emocional.", o:"Deus, Tu és meu médico. Toca meu corpo, minha mente e meu coração hoje. Eu recebo Tua saúde completa. Amém."},
+  {t:"Dia 29 - Protegida e guardada", v:"Salmos 91:11", d:"O Senhor dá ordens aos Seus anjos ao meu respeito para me guardarem em todos os meus caminhos. Eu estou segura.", o:"Pai, obrigada pela proteção. Guarda-me hoje de todo acidente, inveja e mal. Que Teus anjos acampem ao meu redor. Amém."},
+  {t:"Dia 30 - Infinitamente amada e completa", v:"Sofonias 3:17", d:"O Senhor meu Deus está no meio de mim como poderoso para salvar. Ele se alegra em mim com cânticos de amor. Eu sou completa Nele.", o:"Deus, obrigada por esses 30 dias. Hoje eu declaro que sou infinitamente amada, completa, feliz e realizada em Ti. Que venham mais 30 dias de vitórias! Em nome de Jesus, Amém."}
+];
+
+let atual=0;
+const menu=document.getElementById('menu');
+const card=document.getElementById('card');
+const barra=document.getElementById('barra');
+
+devocional.forEach((item,i)=>{
+  const b=document.createElement('button');
+  b.innerText=(i+1);
+  b.onclick=()=>mostrar(i);
+  menu.appendChild(b);
+});
+
+function mostrar(i){
+  atual=i;
+  const item=devocional[i];
+  card.innerHTML=`
+    <h2>${item.t}</h2>
+    <div class="versiculo">📖 ${item.v}</div>
+    <div class="bloco"><div class="label">DECLARAÇÃO DO DIA</div><div style="font-weight:700;font-size:15px;line-height:1.5">${item.d}<br><br>🗣️ Declare 3x em voz alta hoje, Charmila!</div></div>
+    <div class="bloco"><div class="label">ORAÇÃO DO DIA</div><div style="line-height:1.6">${item.o}</div></div>
+    <div style="margin-top:15px;font-size:11px;opacity:0.5">✨ Dia ${i+1} de 30 • Para Charmila Elija</div>
+  `;
+  document.querySelectorAll('.menu button').forEach((b,idx)=>b.classList.toggle('active', idx===i));
+  barra.style.width=((i+1)/30*100)+'%';
+}
+
+function mudar(dir){
+  let novo=atual+dir;
+  if(novo<0) novo=29;
+  if(novo>29) novo=0;
+  mostrar(novo);
+  window.scrollTo({top:document.querySelector('.container').offsetTop, behavior:'smooth'});
+}
+
+mostrar(0);
+</script>
+</body>
+</html>
